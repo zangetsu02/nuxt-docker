@@ -11,7 +11,7 @@
 * Gateway (Work in progress)
     * Nginx (as reverse-proxy)
     
-## ⚙ Installation
+## ⚙ Installation for development environment
 
 Clone or download the repository and enter its directory:
 
