@@ -15,7 +15,7 @@ WORKDIR /var/www/html
 ENV HOST 0.0.0.0
 
 # Expose the Nuxt port
-EXPOSE 3000
+EXPOSE 3001
 
 # Export the Vite websocket port
 EXPOSE 24678
