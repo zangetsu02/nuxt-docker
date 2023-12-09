@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+
+  php:
+    build:
+      context: ./.docker
+      dockerfile: php.dockerfile
+    container_name: php
+    volumes:
+      - ./symfony:/var/www/html:delegated
+    ports:
+      - '3000:9000'
+
+  db:
+    image: postgres
+    container_name: postgres
+    restart: always
+    env_file:
+      - ./.docker/postgres.env
+
+  composer:
+    build:
+      context: ./.docker
+      dockerfile: composer.dockerfile
+    volumes:
+      - ./symfony:/var/www/html
+
+  symfony-console:
+    build:
+      context: ./.docker
+      dockerfile: php.dockerfile
+    volumes:
+      - ./symfony:/var/www/html
+    entrypoint: [ "php", "/var/www/html/bin/console" ]
